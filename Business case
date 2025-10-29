@@ -1,1 +1,22 @@
+Business Case
+
+Since 2023, Ontario Tech University has identified a growing need to increase and moderate communication between its students, lecturers, and administrators, due to COVID-19. It relies heavily on systems like the Learning Management System (LMS), the registration database, calendars and email, which usually require lots of queries and manual navigation. This causes a lot of lost time trying to navigate through, delayed responses to inquiries, and reduced student engagement.
+To address and further battle against these issues, the university has proposed the idea of an AI-Powered Digital Assistant Platform (AIDAP), which is a conversational and highly intelligent system capable of understanding lots of natural language queries, plus providing access to university data. AIDAP will then be integrated into many of Ontario Tech University’s existing systems to deliver real-time info about anything, including university info, class schedules, deadlines and performance analytics.
+The AIDAP will serve these 3 main user groups:
+
+	The Students, who will use AIDAP to ask any academic or any other related questions, view their course schedules, course grades, course information , and receive notifications to their email.
+
+	The Lecturers, who will use AIDAP to post any new announcements , manage and update course content, oversee students and TA’s , and access and view class analytics through a single conversational interface.
+
+	The Administrators, who will oversee the policies made and upheld by Ontario Tech University, update their institutional data, and send many and different kinds of information to many departments.
+
+
+Ontario Tech University’s platform integrates their systems through secure api’s and supports both text and verbal interaction, and applies single sign in (SSO) for authentication for individuals , and it will be deployed as a cloud and scalable device ensuring a 99.5% system availability per month and its average response times under 2 seconds.
+At Ontario Tech University AIDAP aims to enhance operational efficiency, improve their student interaction and experience using the platform, and help transform and better scale their communication methods and digital footprint at Ontario Tech University. 
+
+
+
+Design Purpose
+
+AIDAP	is an integration Greenfield design. As it is a new and built from scratch AI - driven platform , and designed to integrate with Ontario Tech’s existing systems, like their (LMS, registration, calendar, and email). And its purpose is to create a system that works like an everyday tool that provides easy access and communication between students, lecturers, and administration through a scalable, cloud-based conversational interface.
 
