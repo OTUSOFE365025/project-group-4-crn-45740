@@ -1,1 +1,10 @@
-Add the Quality Attributes to this file
+| ID      | Quality Attribute    | Scenario                                                                                                                                                   | Associated Use Case    |
+| ------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| **QA1** | **Performance**      | When a student submits a query, AIDAP responds within 2 seconds for 95% of requests.                                                                       | UC-1, UC-2             |
+| **QA2** | **Reliability**      | When a system node fails during normal usage, auto-failover restores the system within 5 minutes, maintaining 99% uptime.                                  | UC-6, UC-7             |
+| **QA3** | **Scalability**      | When concurrent user count spikes, the load balancer scales AI and web components, keeping response latency increase under 20%.                            | UC-1, UC-2, UC-3       |
+| **QA4** | **Security**         | When unauthorized access is detected, access is immediately blocked, the event is logged, and the admin is alerted.                                        | UC-1, UC-3, UC-5, UC-6 |
+| **QA5** | **Usability**        | When a first-time student completes a query within 3 minutes without assistance, the interface matches UI conversational guidelines.                       | UC-1, UC-2             |
+| **QA6** | **Interoperability** | When the system detects API changes, it adapts using a compatibility layer and completes synchronization within 10 minutes.                                | UC-5, UC-7             |
+| **QA7** | **Modifiability**    | When a new model is deployed, the system adds and integrates the model with zero downtime; deployment takes less than 1 hour.                              | UC-6                   |
+| **QA8** | **Observability**    | When a query exceeds 2 seconds, an automatic alert is generated; the system maintainer is notified within 60 seconds, and logs are stored for diagnostics. | UC-1, UC-6             |
