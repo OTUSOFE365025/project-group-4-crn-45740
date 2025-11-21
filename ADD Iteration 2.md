@@ -154,26 +154,13 @@ The sequence diagram explains how the admin configures and executes system integ
 Step 7: Perform Analysis of Current Design and Review Iteration Goal and Achievement of Design Purpose
 With all of the refining done for this iteration, a review of the drivers addressed can be composed inside the following table:
 
-| **Not Addressed** | **Partially Addressed** | **Completely Addressed** | **Design Decision** |
-|-------------------|--------------------------|----------------------------|----------------------|
-|                   |                          | UC-1                       | Chosen as the primary driver as layered architecture can support fast query processing. |
-|                   |                          | UC-2                       | Chosen as the primary driver because it interacts with many subsystems, such as student data and schedules. |
-|                   | UC-5                     |                            | Integration is recognized as crucial; however, it is not detailed yet. The Communication Utility and Security layers act as placeholders for now. |
-|                   |                          | QA1                        | Finished with the separation of layers, dedicated business logic, and minimal coupling, which helps with the fast response time. |
-|                   | QA2                      |                            | Reliability mechanisms exist as a concept in the system, but they have not been implemented with failover details yet. |
-|                   | QA3                      |                            | Layered architecture enables independent scaling within the system, but auto-scaling mechanisms have not yet been designed. |
-|                   | QA4                      |                            | The security layer is mentioned, but its implementation details have not been provided yet. |
-|                   | QA7                      |                            | There is a clear separation of UI, business, and data layers, but no AI pipeline has been implemented yet. |
-|                   |                          | CON-1                      | The authentication service is included as a cross-cutting component in the system. |
-|                   | CON-2                    |                            | Represented by the Communication Utility, but the specific adapters are not added as of Iteration 2. |
-|                   | CON-3                    |                            | The security layer mentions encryption, but lacks specific details. |
-|                   | CON-4                    |                            | The data layer provides repositories, but no retention policy has been implemented yet. |
-|                   | CON-5                    |                            | High-level architecture can support reliability, but no failover mechanism is yet in place. |
-|                   | CON-6                    |                            | Achievable with the layered architecture, but no caching or optimization has been implemented yet. |
-|                   |                          | CRN-1                      | Iteration 1 only defines where the AI stays, not which model or framework the AI uses. |
-|                   |                          | CRN-2                      | The current architecture separates the AI Orchestrator from the business logic, allowing for future extension and modification. |
-|                   |                          | CRN-3                      | A security layer exists in the architecture, but privacy and audit logging are still in progress. |
-|                   |                          | CRN-4                      | Only high-level Communication Utility exists; the specific adapters have not been defined yet. |
+![Image 3](https://i.imgur.com/EyaVdz9.png)
+
+![Image 4](https://i.imgur.com/4qeqY9t.png)
+
+
+![Image 5](https://i.imgur.com/JxExIz6.png)
+
 
 
 
