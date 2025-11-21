@@ -157,4 +157,5 @@ The instantiation design decisions are chosen in the following table:
 | **Monitoring Service**  | Tracks latency, uptime, and errors; logs conversation sessions; and alerts maintainers of any system issues. *(QA2)* |
 | **Data Repository**     | Manages storage of user information, queries, dashboards, and logs, ensuring secure and encrypted data *(CON-3)* and providing high-performance analytics queries. |
 
-
+      
+![Architecture Table](https://i.imgur.com/YM2kvMv.png)
