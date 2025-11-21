@@ -1,1 +1,9 @@
-Include in this file the 7 steps for Iteration 1
+| Use Case | Description | Linked Requirements |
+|----------|-------------|---------------------|
+| **UC-1: Ask a question** | The student asks a question via chat or voice to AIDAP, such as “When is my next exam?” or “What are my upcoming assignments?” | R1, R4, R5, R6, RS1, RS5, RS7, RS8, RS10 |
+| **UC-2: View personalized dashboard** | The student requests that AIDAP provide an overview of their personalized schedule and academic status, including their GPA and exam schedules. | R1, R2, R3, RS2, RS3, RS5, RS9, RS10, RS12 |
+| **UC-3: Post-course announcement** | The lecturer requests AIDAP to send an announcement to all students enrolled in the course. | R1, R3, R4, RL2, RL8, RA3 |
+| **UC-4: Schedule automated reminder** | The lecturer requests AIDAP to set an automated reminder at a specific time for assignments, labs, meetings, etc. | R3, RL4, RL5, RS2 |
+| **UC-5: Manage integrations & policies** | The administrator connects AIDAP to the campus institute's systems, such as email, websites, and the registration system. | R3, R8, RA1, RA2, RA3, RA5, RD2 |
+| **UC-6: Operate & monitor the platform** | The system maintainer monitors AIDAP by checking uptime, logs, CPU latency, and other relevant metrics. | R7, RA6, RM1, RM2, RM4, RM6, RM7 |
+| **UC-7: Sync & recover with data sources** | The system ensures consistency between AIDAP and external systems by syncing every 15 minutes. | R3, R6, RD1, RD2, RD3, RD4, RM5 |
