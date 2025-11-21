@@ -157,9 +157,17 @@ The instantiation design decisions are chosen in the following table:
 | **Monitoring Service**  | Tracks latency, uptime, and errors; logs conversation sessions; and alerts maintainers of any system issues. *(QA2)* |
 | **Data Repository**     | Manages storage of user information, queries, dashboards, and logs, ensuring secure and encrypted data *(CON-3)* and providing high-performance analytics queries. |
 
+
+
+
+Step 6: Sketch Views and Record Design Decisions
+The layered diagram is designed to show the module view of the reference architecture chosen for the AIDAP System.   
+
+
       
 ![Architecture Table](https://i.imgur.com/YM2kvMv.png)
 Figure 2: Layered Diagram for AIDAP System
+
 
 
 From the layered diagram of the AIDAP System, we can summarize the major functionalities in the following table:
@@ -196,4 +204,58 @@ From the layered diagram of the AIDAP System, we can summarize the major functio
 | **Operational Management** | Monitors system health, performs maintenance checks, and ensures optimum performance. |
 | **Communication Handler** | Manages serialization, data formats, and communication protocol adapters. |
 
-   
+![AIDAP Table](https://i.imgur.com/vNWv27n.png)
+
+
+Figure 3: Deployment Diagram for AIDAP System
+
+
+
+From the deployment diagram, the responsibilities of each element can be listed in the following table:
+### System Elements and Responsibilities
+
+| **Element**               | **Responsibility** |
+|---------------------------|---------------------|
+| **Client Device**         | The element captures user text/voice, presents chat UI and dashboard. |
+| **API Gateway**           | The element validates tokens (SSO), routes requests and rate-limits, performs TLS termination and logs. |
+| **AI Processing Cluster** | The element detects intent, extracts the entity, and generates responses. |
+| **Application Server**    | The element maintains the context of the conversation, communicates and aggregates services into the dashboard DTOs. |
+| **Database Server**       | The element stores logs and profiles, and performs frequent backups and checkups on the data. |
+
+The relationship between each element in the deployment diagram can also be generalized with the following table:
+
+### System Relationships
+
+| **Relationship**                       | **Description** |
+|----------------------------------------|------------------|
+| **Client Device → API Gateway**        | Centralizes the entry point into the system, enforces SSO, and handles routing. |
+| **API Gateway → AI Processing Cluster**| Works as a low-latency inference channel for NLP/LLM. |
+| **API Gateway → Application Server**   | Standard API requests for business logic. |
+| **Application Server → Database**      | Storage of profiles, logs, and analytics. |
+
+
+Step 7: Perform Analysis of Current Design and Review Iteration Goal and Achievement of Design Purpose
+This step is intended to serve as a small retrospective analysis for this iteration. The goal in this iteration is to address the global structural drivers (architecture, SSO, integration, availability, modifiability) completely where possible, and to mark those that require lower-level tactics (caching, model serving tuning, DB indexing) as partially addressed to be resolved in later iterations.
+
+The following table summarizes the design decisions for every driver addressed in this iteration:
+
+
+### Driver Coverage Table
+
+| **Not Addressed** | **Partially Addressed** | **Completely Addressed** | **Design Decision** |
+|-------------------|--------------------------|----------------------------|-----------------------|
+|                   | **UC-1**                |                            | The high-level pipeline is defined, but NLP models, message orchestration rules, session handling, and AI error recovery have not been designed yet. |
+|                   | **UC-2**                |                            | Dashboard aggregation exists conceptually, but no refresh rules, data caching, analytics integration, or UI optimization are specified. |
+|                   | **UC-5**                |                            | Integration Services exist, but sync schedules, conflict resolution, retries, and data quality rules are not designed. |
+|                   | **QA1**                 |                            | Technology choices (gRPC, AI cluster isolation) help, but no performance budgets, load tests, or latency modelling. |
+|                   | **QA2**                 |                            | High-level security components exist, but no RBAC rules, token lifetimes, or threat modelling. |
+|                   | **QA3**                 |                            | Scaling strategy, autoscaling configuration, and distributed queues are not defined. |
+|                   | **QA4**                 |                            | Failover mechanisms, backups, and incident response plans are not in place. |
+|                   | **QA7**                 |                            | Retry logic, message durability, and callback paths are missing. |
+|                   |                          | **CON-1**                 | The integration of the API Gateway and SSO provider is addressed in this section. |
+|                   |                          | **CON-2**                 | The Integration Service is addressed generally, but not every service is fully addressed in this iteration. |
+|                   |                          | **CON-3**                 | HTTPS is selected as a mandatory architectural decision. |
+
+
+
+
