@@ -91,3 +91,37 @@ CRN-4: Smooth integration with LMS, registration, calendars, email
 Step 3: Choose One or More Elements of the System to Refine
 Because the initial iteration is to establish the overall structure of the system, the target for refinement in this iteration is the entire AIDAP system.
 [![alt text](https://i.imgur.com/qVXrC21.png)]
+
+
+Step 4: Choose One or More Design Concepts that Satisfy the Selected Drivers
+The following table compiles the selection of design decisions made for the purpose of building the entire system structure:
+
+
+### Reference Architecture
+
+| Reference Architecture | Rationale |
+|------------------------|-----------|
+| Rich Client Application reference architecture is implemented for the client-side architecture | The Rich Client Application Architecture supports conversational UI and real-time updates (QA1, QA5) and allows multi-platform access (RS9). This reference architecture also efficiently handles dynamic user interactions, ensuring seamless performance without overloading the server. |
+| Service Application Architecture is implemented for the server-side architecture | The Service Application Architecture supports a scalable back-end AI service as well as independent scaling of AI inference nodes (QA3). This architecture also clears the separation between NLP processing, dialogue management and data retrieval. |
+
+### Discarded Alternatives
+
+| Option | Reason for Discarding |
+|--------|------------------------|
+| Pure Web Application | This option renders the system incapable of handling heavy AI computations on the server without utilizing a dedicated processing layer. |
+| Monolithic Architecture | Using this option would violate:<br>• **Modifiability (QA7)**: Difficult to update individual AI components and add new features for different user groups due to tight coupling.<br>• **Maintainability (CRN-2)**: Codebase becomes large & complex; one bug could affect the entire system. |
+| Fully Server-Independent | Challenging to guarantee 99% uptime and real-time syncing (UC-7) due to independent nature of the AI. |
+
+### Deployment Pattern
+
+| Deployment Pattern | Rationale |
+|--------------------|-----------|
+| Three-Tier Cloud-Native architecture is used to structure the client node, application node, database node, and external systems node | This deployment pattern supports security isolation (CON-3), allows for independent scaling of AI inference (QA3), ensures a failover system and redundancy (CON-5), and aligns with the integration model for the university system (CRN-4). |
+| Edge-assisted Hybrid Deployment is used to run a lightweight edge layer for the pre-processing of voice and audio | This deployment pattern helps reduce latency for users at edge locations, supports offline behaviour, centralizes heavy inference, and shifts unnecessary pre-processing to the edge. |
+
+### Framework
+
+| Framework | Rationale |
+|-----------|-----------|
+| Build the backend of the application using **Express.js** as a framework | Express.js is chosen because it is a standard cloud-native framework that supports scalability (QA3), modifiability (QA7), and security (QA4).<br>Discarded alternatives: **Spring Boot (Java)** and **FastAPI (Python)** — team members are not familiar with Java, and FastAPI is less effective for this use case. |
+
