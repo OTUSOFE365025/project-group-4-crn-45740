@@ -6,7 +6,7 @@ P.S
 
 Weeshsan is Kireesan Praisoody
 
-Phase 2 is on the Iteration 2 branch, not on main
+The completed phase 2 is on the Iteration 2 branch, not on main
 
 for the itteration 1 pls go to the ADD iteration 1 .md
 
