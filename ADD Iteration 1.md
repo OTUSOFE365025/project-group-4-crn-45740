@@ -125,3 +125,36 @@ The following table compiles the selection of design decisions made for the purp
 |-----------|-----------|
 | Build the backend of the application using **Express.js** as a framework | Express.js is chosen because it is a standard cloud-native framework that supports scalability (QA3), modifiability (QA7), and security (QA4).<br>Discarded alternatives: **Spring Boot (Java)** and **FastAPI (Python)** — team members are not familiar with Java, and FastAPI is less effective for this use case. |
 
+
+
+
+Step 5: Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+The instantiation design decisions are chosen in the following table:
+
+ ### Client Side Modules
+
+| **Module**           | **Responsibility** |
+|----------------------|---------------------|
+| **UI Layer**         | The module will handle the chat UI, display the dashboard overview, and present announcements. *(UC-1, UC-2)* |
+| **Voice Processor**  | The module will handle audio capture, which will be sent to the STT service. |
+| **Client Controller** | The module will manage many UI events and maintain the current conversation session states. |
+| **Client API Adapter** | The module handles HTTPS/REST calls to AIDAP’s API gateway, as well as processing requests and parsing responses from the API. *(CON-1, CON-3, QA4)* |
+
+### Server Side Modules
+
+| **Module**              | **Responsibility** |
+|-------------------------|---------------------|
+| **API Gateway**         | The module serves as the entry point for all clients, validating incoming requests to backend services and providing logging and auditing. *(CON-1, QA4)* |
+| **SSO Authentication Service** | The module manages user identity, roles, and permission verification, ensuring all AI components of the AIDAP System trust the same user. *(CON-1)* |
+| **NLP Engine**          | The module will convert text and voice commands from the user into data points that the system can understand, and also handle misrecognition recovery, fallback intents, and error messages. *(UC-1)* |
+| **Dialogue Manager**    | The module manages conversation flow and maintains the conversation's context state. It also determines which backend service to call based on the given commands and combines multiple services as needed. |
+| **AI Model Service**    | The module runs the large language model that generates the final response for each task, and handles model updates. *(QA7)* |
+| **LMS Connector**       | The module retrieves results from courses like grades and assignments from the LMS and produces academic data for the dashboard. *(UC-2)* |
+| **Registration Connector** | Retrieves student details and course enrollment data, synchronizing this information with the AIDAP Database. |
+| **Calendar Connector**  | Retrieves schedules and deadlines from the university calendar for all users and generates schedule objects for the dashboard. |
+| **Email Connector**     | Sends announcements based on administrator or similar requests and updates these announcements through SSO services. |
+| **Sync Manager**        | Handles syncing from LMS, registration, and calendar systems, ensuring consistent data transfer across AIDAP services without conflict or missing data. *(UC-7, QA2)* |
+| **Monitoring Service**  | Tracks latency, uptime, and errors; logs conversation sessions; and alerts maintainers of any system issues. *(QA2)* |
+| **Data Repository**     | Manages storage of user information, queries, dashboards, and logs, ensuring secure and encrypted data *(CON-3)* and providing high-performance analytics queries. |
+
+
