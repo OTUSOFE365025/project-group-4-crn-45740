@@ -76,6 +76,8 @@ The inputs that are to be reviewed are in the following table:
 
 Step 2: Establish Iteration Goal by Selecting Drivers
 The selected drivers to be reviewed in this iteration are:
+
+
 QA1: Performance
 QA2: Reliability
 QA4: Security
@@ -88,4 +90,4 @@ CRN-4: Smooth integration with LMS, registration, calendars, email
 
 Step 3: Choose One or More Elements of the System to Refine
 Because the initial iteration is to establish the overall structure of the system, the target for refinement in this iteration is the entire AIDAP system.
-![alt text](https://i.imgur.com/xxxxxx.png)
+[![alt text](https://i.imgur.com/qVXrC21.png)]
