@@ -44,6 +44,14 @@
 
 
 
+
+
+Iteration 1: Establishing an Overall System Structure
+
+Step 1: Review Inputs
+The inputs that are to be reviewed are in the following table:
+
+
 ## Iteration Driver Summary
 
 | **Category** | **Details** |
@@ -63,3 +71,21 @@
 | **Constraints** | All of the constraints are needed for this iteration. |
 | **Concerns** | All of the concerns are mentioned in this iteration. |
 
+
+
+
+Step 2: Establish Iteration Goal by Selecting Drivers
+The selected drivers to be reviewed in this iteration are:
+QA1: Performance
+QA2: Reliability
+QA4: Security
+CON-1: Must authenticate via Ontario Tech SSO before access
+CON-2:Integrates ONLY with approved university systems via secure APIs
+CON-3: All data encrypted in-transit and at rest
+CRN-3: Proper security and privacy controls aligned with university policies
+CRN-4: Smooth integration with LMS, registration, calendars, email
+
+
+Step 3: Choose One or More Elements of the System to Refine
+Because the initial iteration is to establish the overall structure of the system, the target for refinement in this iteration is the entire AIDAP system.
+![alt text](https://i.imgur.com/xxxxxx.png)
