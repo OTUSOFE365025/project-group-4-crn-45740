@@ -159,3 +159,41 @@ The instantiation design decisions are chosen in the following table:
 
       
 ![Architecture Table](https://i.imgur.com/YM2kvMv.png)
+Figure 2: Layered Diagram for AIDAP System
+
+
+From the layered diagram of the AIDAP System, we can summarize the major functionalities in the following table:
+
+### Full System Elements and Responsibilities
+
+| **Element** | **Responsibility** |
+|-------------|---------------------|
+| **Client Presentation (Layer)** | Contains modules which provide user interaction surfaces and manage presentation logic for chat, dashboard, and notifications. |
+| **UI** | Display chat, dashboard, and notification UI, and collect text/voice input from the user. |
+| **UI Process Logic** | Handle UI events, process requests, and convert user inputs into client processes. |
+| **Client Business (Layer)** | Contains modules that perform client-side logic, preprocessing, formatting, and coordination within the application level before communicating with the server. |
+| **Client Application Facade** | Acts as a single entry point for client processes and routes UI actions to the appropriate client logic. |
+| **Client Business Logic** | Prepares requests from the current conversation, formats data, handles session flow and conversational logic on the client side before sending requests to the server. |
+| **Client Cross-cutting (Layer)** | Contains modules that provide reusable client-side functions required for security, logging, and other cross-cutting concerns. |
+| **Client Security** | Manages SSO Authentication tokens, protects the security of local operations, and validates client-side operations. |
+| **Client Logging** | Logs errors from the UI, user interactions, and client-side diagnostics. |
+| **Client Communication Utils** | Handles HTTP wrappers, request formatting, and serialization helpers. |
+| **Client Data (Layer)** | Not present, as AIDAP is fully server-driven. No need for local databases on the client for security reasons. |
+| **Server Service (Layer)** | Contains modules that expose secure endpoints, validate requests, process tokens, and provide an interface between the client and the core business logic. |
+| **API Gateway** | Acts as the gateway to the backend, handling routing, rate limiting, SSO validations, and HTTPS termination. |
+| **Service Endpoints** | Handles REST/gRPC logic, mapping requests to the server’s business layer. |
+| **Request Validator** | Validates schemas, secures tokens, cleans parameters, and rejects malformed input. |
+| **Server Business (Layer)** | Contains domain logic, orchestrates processes, controls conversational flow, and assembles dashboard data. |
+| **Server Application Facade** | Central entry point to business logic, ensuring consistent workflow between service and domain logic. |
+| **Business Logic** | Executes domain functions, handles conversations, dashboard objects, and announcements. |
+| **Business Entities** | Represents the data structures used throughout the system. |
+| **Server Data (Layer)** | Stores and retrieves system statistics/data and manages interactions with external services. |
+| **Profile Repository** | Manages user profiles and profile-related operations. |
+| **Interaction Log Repository** | Stores and retrieves previous chat sessions for analytics and audits. |
+| **Analytics Store** | Handles system usage metrics, dashboard analytics, and performance tracking. |
+| **Server Cross-cutting (Layer)** | Provides shared cross-cutting functions across the business and service layers. |
+| **Server Security** | Enforces user authorization, validates tokens, and applies security policies. |
+| **Operational Management** | Monitors system health, performs maintenance checks, and ensures optimum performance. |
+| **Communication Handler** | Manages serialization, data formats, and communication protocol adapters. |
+
+   
