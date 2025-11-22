@@ -1,3 +1,5 @@
+## Use Case
+
 | Use Case | Description | Linked Requirements |
 |----------|-------------|---------------------|
 | **UC-1: Ask a question** | The student asks a question via chat or voice to AIDAP, such as “When is my next exam?” or “What are my upcoming assignments?” | R1, R4, R5, R6, RS1, RS5, RS7, RS8, RS10 |
@@ -242,20 +244,10 @@ The following table summarizes the design decisions for every driver addressed i
 
 ### Driver Coverage Table
 
-| **Not Addressed** | **Partially Addressed** | **Completely Addressed** | **Design Decision** |
-|-------------------|--------------------------|----------------------------|-----------------------|
-|                   | **UC-1**                |                            | The high-level pipeline is defined, but NLP models, message orchestration rules, session handling, and AI error recovery have not been designed yet. |
-|                   | **UC-2**                |                            | Dashboard aggregation exists conceptually, but no refresh rules, data caching, analytics integration, or UI optimization are specified. |
-|                   | **UC-5**                |                            | Integration Services exist, but sync schedules, conflict resolution, retries, and data quality rules are not designed. |
-|                   | **QA1**                 |                            | Technology choices (gRPC, AI cluster isolation) help, but no performance budgets, load tests, or latency modelling. |
-|                   | **QA2**                 |                            | High-level security components exist, but no RBAC rules, token lifetimes, or threat modelling. |
-|                   | **QA3**                 |                            | Scaling strategy, autoscaling configuration, and distributed queues are not defined. |
-|                   | **QA4**                 |                            | Failover mechanisms, backups, and incident response plans are not in place. |
-|                   | **QA7**                 |                            | Retry logic, message durability, and callback paths are missing. |
-|                   |                          | **CON-1**                 | The integration of the API Gateway and SSO provider is addressed in this section. |
-|                   |                          | **CON-2**                 | The Integration Service is addressed generally, but not every service is fully addressed in this iteration. |
-|                   |                          | **CON-3**                 | HTTPS is selected as a mandatory architectural decision. |
+![Image 1](https://i.imgur.com/GFfvtsw.png)
 
+
+![Image 2](https://i.imgur.com/hpkQT9I.png)
 
 
 
